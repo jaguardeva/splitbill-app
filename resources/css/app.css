@@ -1,0 +1,238 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme inline {
+    --font-sans:
+        'Space Grotesk', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --font-mono:
+        'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        'Liberation Mono', 'Courier New', monospace;
+
+    --color-neo-blue: #2563eb;
+    --color-neo-blue-hover: #1d4ed8;
+    --color-neo-yellow: #facc15;
+    --color-neo-yellow-hover: #eab308;
+    --color-neo-white: #ffffff;
+    --color-neo-black: #000000;
+}
+
+@layer utilities {
+    /* Neo-Brutalism Shadows */
+    .neo-shadow-xs {
+        box-shadow: 2px 2px 0px 0px #000000;
+    }
+    .neo-shadow {
+        box-shadow: 4px 4px 0px 0px #000000;
+    }
+    .neo-shadow-md {
+        box-shadow: 5px 5px 0px 0px #000000;
+    }
+    .neo-shadow-lg {
+        box-shadow: 6px 6px 0px 0px #000000;
+    }
+    .neo-shadow-xl {
+        box-shadow: 8px 8px 0px 0px #000000;
+    }
+
+    /* Neo-Brutalism Buttons */
+    .neo-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #000000;
+        font-weight: 700;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+        user-select: none;
+    }
+    .neo-btn:hover {
+        transform: translate(-2px, -2px);
+    }
+    .neo-btn:active {
+        transform: translate(2px, 2px);
+        box-shadow: none !important;
+    }
+
+    .modal-close-button:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 4px 4px 0px 0px #000000;
+    }
+
+    .modal-close-button:active {
+        transform: translate(2px, 2px);
+        box-shadow: none !important;
+    }
+
+    .neo-btn-blue {
+        background-color: var(--color-neo-blue);
+        color: #ffffff;
+        box-shadow: 3px 3px 0px 0px #000000;
+    }
+    .neo-btn-blue:hover {
+        background-color: var(--color-neo-blue-hover);
+        box-shadow: 5px 5px 0px 0px #000000;
+    }
+
+    .neo-btn-yellow {
+        background-color: var(--color-neo-yellow);
+        color: #000000;
+        box-shadow: 3px 3px 0px 0px #000000;
+    }
+    .neo-btn-yellow:hover {
+        background-color: var(--color-neo-yellow-hover);
+        box-shadow: 5px 5px 0px 0px #000000;
+    }
+
+    .neo-btn-white {
+        background-color: #ffffff;
+        color: #000000;
+        box-shadow: 3px 3px 0px 0px #000000;
+    }
+    .neo-btn-white:hover {
+        background-color: #f4f4f5;
+        box-shadow: 5px 5px 0px 0px #000000;
+    }
+
+    /* Neo Cards */
+    .neo-card {
+        background-color: #ffffff;
+        border: 2px solid #000000;
+        box-shadow: 4px 4px 0px 0px #000000;
+        border-radius: 0.75rem;
+    }
+    .neo-card-yellow {
+        background-color: var(--color-neo-yellow);
+        border: 2px solid #000000;
+        box-shadow: 4px 4px 0px 0px #000000;
+        border-radius: 0.75rem;
+    }
+    .neo-card-blue {
+        background-color: var(--color-neo-blue);
+        color: #ffffff;
+        border: 2px solid #000000;
+        box-shadow: 4px 4px 0px 0px #000000;
+        border-radius: 0.75rem;
+    }
+
+    /* Neo Input */
+    .neo-input {
+        background-color: #ffffff;
+        color: #000000;
+        border: 2px solid #000000;
+        box-shadow: 2px 2px 0px 0px #000000;
+        border-radius: 0.5rem;
+        outline: none;
+    }
+    .neo-input:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 2px #2563eb, 2px 2px 0px 0px #000000;
+    }
+}
+
+body {
+    background-color: #fafafa;
+    color: #000000;
+}
+
+button,
+[role="button"],
+a,
+input[type="checkbox"],
+input[type="radio"],
+select,
+summary {
+    cursor: pointer;
+}
+
+/* Print Invoice Styling */
+@media print {
+    body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    body.printing-invoice > *:not(#printable-invoice) {
+        display: none !important;
+    }
+
+    #printable-invoice {
+        position: static !important;
+        width: 100% !important;
+        max-width: none !important;
+        min-height: auto !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    #printable-invoice,
+    #printable-invoice * {
+        visibility: visible !important;
+    }
+
+    #printable-invoice > * {
+        margin-top: 0 !important;
+        margin-bottom: 4mm !important;
+    }
+
+    #printable-invoice h1 {
+        font-size: 20pt !important;
+        line-height: 1.1 !important;
+    }
+
+    #printable-invoice h2 {
+        font-size: 14pt !important;
+        line-height: 1.15 !important;
+    }
+
+    #printable-invoice h3 {
+        line-height: 1.15 !important;
+    }
+
+    #printable-invoice th,
+    #printable-invoice td {
+        padding: 1.5mm 2mm !important;
+        line-height: 1.2 !important;
+    }
+
+    #printable-invoice p {
+        line-height: 1.25 !important;
+    }
+
+    #printable-invoice,
+    #printable-invoice * {
+        color: #000000 !important;
+        background: #ffffff !important;
+        border-color: #000000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    #printable-invoice table {
+        page-break-inside: auto;
+        break-inside: auto;
+    }
+
+    #printable-invoice thead {
+        display: table-header-group;
+    }
+
+    #printable-invoice tr {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    @page {
+        size: A4 portrait;
+        margin: 12mm;
+    }
+}
