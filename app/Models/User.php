@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Role;
 use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
@@ -17,13 +18,14 @@ use Illuminate\Support\Carbon;
  * @property string $id
  * @property string $name
  * @property string $email
+ * @property Role $role
  * @property Carbon|null $email_verified_at
  * @property string $password
  * @property string|null $remember_token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  */
-#[Fillable(['name', 'email', 'password'])]
+#[Fillable(['name', 'email', 'password', 'role'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -40,7 +42,34 @@ class User extends Authenticatable implements MustVerifyEmail
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'role' => Role::class,
         ];
+    }
+
+    /**
+     * Check if the user has an Admin role.
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === Role::Admin;
+    }
+
+    /**
+     * Check if the user has a regular User role.
+     */
+    public function isUser(): bool
+    {
+        return $this->role === Role::User;
+    }
+
+    /**
+     * Determine if the user has a specific role.
+     */
+    public function hasRole(Role|string $role): bool
+    {
+        $roleValue = $role instanceof Role ? $role->value : $role;
+
+        return $this->role->value === $roleValue;
     }
 
     /**

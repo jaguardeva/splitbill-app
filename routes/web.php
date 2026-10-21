@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminCalculationController;
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Auth\EmailVerificationOtpController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordResetController;
@@ -62,5 +65,17 @@ Route::middleware('auth')->group(function () {
         Route::put('/calculations/{calculation}', [SavedCalculationController::class, 'update'])->name('calculations.update');
         Route::delete('/calculations/{calculation}', [SavedCalculationController::class, 'destroy'])->name('calculations.destroy');
         Route::post('/calculations/{calculation}/duplicate', [SavedCalculationController::class, 'duplicate'])->name('calculations.duplicate');
+    });
+
+    // Admin Panel Routes
+    Route::middleware(['verified', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+        Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+        Route::get('/dashboard', [AdminDashboardController::class, 'index']);
+
+        Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
+        Route::patch('/users/{user}/role', [AdminUserController::class, 'updateRole'])->name('users.update-role');
+
+        Route::get('/calculations', [AdminCalculationController::class, 'index'])->name('calculations.index');
+        Route::get('/calculations/{calculation}', [AdminCalculationController::class, 'show'])->name('calculations.show');
     });
 });

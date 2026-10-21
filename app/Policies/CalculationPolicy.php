@@ -20,7 +20,7 @@ class CalculationPolicy
      */
     public function view(User $user, Calculation $calculation): bool
     {
-        return $user->id === $calculation->user_id;
+        return $user->isAdmin() || $user->id === $calculation->user_id;
     }
 
     /**

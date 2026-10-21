@@ -28,6 +28,10 @@ export default defineConfig({
                     weights: [400, 700],
                     optimizedFallbacks: false,
                 }),
+                bunny('Plus Jakarta Sans', {
+                    weights: [400, 500, 600, 700, 800],
+                    optimizedFallbacks: false,
+                }),
             ],
         }),
         inertia(),

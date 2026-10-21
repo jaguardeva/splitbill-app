@@ -5,7 +5,7 @@ import ConfirmModal from '@/components/ui/ConfirmModal.svelte';
 import UserAvatar from '@/components/UserAvatar.svelte';
 import { logout as logoutRoute } from '@/routes';
 
-let { user = null }: { user?: { name: string; email: string } | null } = $props();
+let { user = null }: { user?: { name: string; email: string; role?: 'admin' | 'user' } | null } = $props();
 
 let mobileMenuOpen = $state(false);
 let logoutModalOpen = $state(false);
@@ -72,6 +72,15 @@ function confirmLogout() {
                 >
                     Riwayat Tagihan
                 </Link>
+
+                {#if user.role === 'admin'}
+                    <Link
+                        href="/admin/dashboard"
+                        class="rounded-lg px-3.5 py-1.5 text-sm font-bold cursor-pointer transition {currentUrl.startsWith('/admin') ? 'border-2 border-black bg-blue-600 text-white shadow-[2px_2px_0px_0px_#000]' : 'border-2 border-black bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white'}"
+                    >
+                        Panel Admin ⚡
+                    </Link>
+                {/if}
             {/if}
         </nav>
 
@@ -128,6 +137,17 @@ function confirmLogout() {
                     >
                         Riwayat Tagihan
                     </Link>
+
+                    {#if user.role === 'admin'}
+                        <Link
+                            href="/admin/dashboard"
+                            onclick={() => (mobileMenuOpen = false)}
+                            class="rounded-lg border-2 border-black bg-blue-600 px-4 py-2 text-base font-bold text-white shadow-[2px_2px_0px_0px_#000] cursor-pointer"
+                        >
+                            Panel Admin ⚡
+                        </Link>
+                    {/if}
+
 
                     <div class="my-2 border-t-2 border-black pt-3">
                         <UserAvatar {user} onLogout={requestLogout} mobile />

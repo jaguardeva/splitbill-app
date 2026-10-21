@@ -1,5 +1,6 @@
 <script lang="ts">
 import { onMount } from 'svelte';
+import { Link } from '@inertiajs/svelte';
 import Button from '@/components/ui/Button.svelte';
 
 let {
@@ -7,7 +8,7 @@ let {
     onLogout,
     mobile = false,
 }: {
-    user: { name: string; email: string };
+    user: { name: string; email: string; role?: 'admin' | 'user' };
     onLogout: () => void;
     mobile?: boolean;
 } = $props();
@@ -84,17 +85,35 @@ onMount(() => {
                 <div class="mb-3 border-b-2 border-black pb-3">
                     <p class="truncate text-sm font-black">{user.name}</p>
                     <p class="truncate text-xs font-bold text-neutral-600">{user.email}</p>
+                    {#if user.role === 'admin'}
+                        <span class="mt-1 inline-block rounded border border-black bg-blue-100 px-2 py-0.5 text-[10px] font-black uppercase text-blue-800">
+                            Administrator
+                        </span>
+                    {/if}
                 </div>
 
-                <Button
-                    onclick={handleLogout}
-                    variant="red"
-                    size="sm"
-                    class="w-full"
-                >
-                    Keluar
-                </Button>
+                <div class="space-y-2">
+                    {#if user.role === 'admin'}
+                        <Link
+                            href="/admin/dashboard"
+                            onclick={() => (menuOpen = false)}
+                            class="flex w-full items-center justify-center rounded-lg border-2 border-black bg-blue-600 py-2 text-xs font-black text-white shadow-[2px_2px_0px_0px_#000] hover:bg-blue-700 cursor-pointer"
+                        >
+                            Panel Admin ⚡
+                        </Link>
+                    {/if}
+
+                    <Button
+                        onclick={handleLogout}
+                        variant="red"
+                        size="sm"
+                        class="w-full"
+                    >
+                        Keluar
+                    </Button>
+                </div>
             </div>
         {/if}
     </div>
 {/if}
+
