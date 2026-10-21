@@ -130,9 +130,7 @@
 <div class="min-h-screen bg-neutral-50 text-black flex flex-col font-sans">
     <Navbar {user} />
 
-    <main
-        class="mx-auto w-full max-w-[1240px] px-4 py-8 sm:px-6 lg:px-8 flex-1"
-    >
+    <main class="mx-auto w-full max-w-310 px-4 py-8 sm:px-6 lg:px-8 flex-1">
         <!-- Header -->
         <div
             class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between pb-6 border-b-[3px] border-black"
