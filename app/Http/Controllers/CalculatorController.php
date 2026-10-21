@@ -13,7 +13,7 @@ class CalculatorController extends Controller
     /**
      * Show public calculator workspace.
      */
-    public function index(Request $request): Response
+    public function index(): Response
     {
         return Inertia::render('Calculator/Index');
     }
