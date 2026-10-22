@@ -1,5 +1,6 @@
 <script lang="ts">
 import { formatRupiah } from '@/lib/formatters';
+import { Download, Share2 } from '@lucide/svelte';
 import type { CalculationPreviewResult } from '@/lib/calculator-preview';
 
 import Button from '@/components/ui/Button.svelte';
@@ -96,9 +97,7 @@ const participantList = $derived(Object.values(result.participants || {}));
                     size="md"
                     class="uppercase tracking-wider"
                 >
-                    <svg class="mr-1.5 size-4 shrink-0 text-black stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 1 1 0-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 1 0 5.367-2.684 3 3 0 0 0-5.367 2.684zm0 9.316a3 3 0 1 0 5.368 2.684 3 3 0 0 0-5.368-2.684z" />
-                    </svg>
+                    <Share2 class="mr-1.5 size-4 shrink-0 text-black" strokeWidth={2.5} aria-hidden="true" />
                     Bagi Rincian
                 </Button>
             {/if}
@@ -112,9 +111,7 @@ const participantList = $derived(Object.values(result.participants || {}));
                     size="md"
                     class="uppercase tracking-wider"
                 >
-                    <svg class="mr-1.5 size-4 shrink-0 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
-                    </svg>
+                    <Download class="mr-1.5 size-4 shrink-0" strokeWidth={2.5} aria-hidden="true" />
                     {isSaving ? 'Menyimpan...' : 'Simpan Tagihan'}
                 </Button>
             {/if}

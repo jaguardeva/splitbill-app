@@ -1,5 +1,6 @@
 <script lang="ts">
 import { fade, fly } from 'svelte/transition';
+import { CircleAlert, CircleCheck, Info, X } from '@lucide/svelte';
 
 let {
     message = null,
@@ -59,17 +60,11 @@ $effect(() => {
         out:fade={{ duration: 180 }}
     >
         {#if variant === 'success'}
-            <svg class="mt-0.5 size-5 shrink-0 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
+            <CircleCheck class="mt-0.5 size-5 shrink-0" strokeWidth={2.5} aria-hidden="true" />
         {:else if variant === 'error' || variant === 'warning'}
-            <svg class="mt-0.5 size-5 shrink-0 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77-1.333.192-3 1.732 1.732z" />
-            </svg>
+            <CircleAlert class="mt-0.5 size-5 shrink-0" strokeWidth={2.5} aria-hidden="true" />
         {:else}
-            <svg class="mt-0.5 size-5 shrink-0 stroke-[2.5] text-blue-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+            <Info class="mt-0.5 size-5 shrink-0 text-blue-800" strokeWidth={2.5} aria-hidden="true" />
         {/if}
 
         <p class="min-w-0 flex-1 leading-relaxed">{message}</p>
@@ -80,9 +75,7 @@ $effect(() => {
             aria-label="Tutup notifikasi"
             class="neo-btn inline-flex size-7 shrink-0 items-center justify-center rounded border-2 border-black bg-white p-0 text-black shadow-[2px_2px_0px_0px_#000] transition-colors hover:bg-black hover:text-white active:translate-x-0.5 active:translate-y-0.5"
         >
-            <svg class="size-3.5 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <X class="size-3.5" strokeWidth={2.5} aria-hidden="true" />
         </button>
     </div>
 {/if}

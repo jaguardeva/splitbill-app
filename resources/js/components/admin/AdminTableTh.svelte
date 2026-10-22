@@ -1,5 +1,6 @@
 <script lang="ts">
 import type { Snippet } from 'svelte';
+import { ArrowDownUp, ChevronDown, ChevronUp } from '@lucide/svelte';
 
 let {
     label,
@@ -60,18 +61,12 @@ function handleClick() {
             <span class="inline-flex shrink-0 items-center text-slate-400">
                 {#if isActive}
                     {#if currentDirection === 'asc'}
-                        <svg class="size-3.5 text-blue-600 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
-                        </svg>
+                        <ChevronUp class="size-3.5 text-blue-600" strokeWidth={2.5} aria-hidden="true" />
                     {:else}
-                        <svg class="size-3.5 text-blue-600 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                        </svg>
+                        <ChevronDown class="size-3.5 text-blue-600" strokeWidth={2.5} aria-hidden="true" />
                     {/if}
                 {:else}
-                    <svg class="size-3 text-slate-300 opacity-60 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
-                    </svg>
+                    <ArrowDownUp class="size-3 text-slate-300 opacity-60 transition-opacity group-hover:opacity-100" strokeWidth={2} aria-hidden="true" />
                 {/if}
             </span>
         </button>

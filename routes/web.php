@@ -7,7 +7,10 @@ use App\Http\Controllers\Auth\EmailVerificationOtpController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\TwoFactorChallengeController;
 use App\Http\Controllers\CalculatorController;
+use App\Http\Controllers\Profile\PasswordController;
+use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\SavedCalculationController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -32,7 +35,8 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [RegisterController::class, 'store']);
 
     Route::get('/login', [LoginController::class, 'create'])->name('login');
-    Route::post('/login', [LoginController::class, 'store']);
+
+    Route::get('/two-factor-challenge', [TwoFactorChallengeController::class, 'create'])->name('two-factor.login');
 
     Route::get('/forgot-password', [PasswordResetController::class, 'requestView'])->name('password.request');
     Route::post('/forgot-password', [PasswordResetController::class, 'sendResetLink'])->name('password.email');
@@ -42,7 +46,10 @@ Route::middleware('guest')->group(function () {
 
 // Authenticated Routes
 Route::middleware('auth')->group(function () {
-    Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
+    // Profile & Account Settings
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile/password', [PasswordController::class, 'update'])->name('profile.password.update');
 
     // Email OTP Verification
     Route::get('/email/verify', [EmailVerificationOtpController::class, 'notice'])->name('verification.notice');

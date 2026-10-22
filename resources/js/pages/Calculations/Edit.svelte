@@ -6,6 +6,7 @@ import Button from '@/components/ui/Button.svelte';
 import CalculatorWorkspace from '@/components/calculator/CalculatorWorkspace.svelte';
 import type { AdjustmentInput, BillItemInput, ParticipantInput } from '@/lib/calculator-preview';
 import { page } from '@inertiajs/svelte';
+import { ArrowLeft } from '@lucide/svelte';
 
 interface InitialCalculationData {
     id: string;
@@ -43,9 +44,7 @@ const user = $derived((page.props as any).auth?.user);
                     size="sm"
                     class="mb-2"
                 >
-                    <svg class="size-3.5 mr-1 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                    </svg>
+                    <ArrowLeft class="mr-1 size-3.5" strokeWidth={2.5} aria-hidden="true" />
                     Kembali ke Riwayat
                 </Button>
                 <h1 class="text-2xl font-black tracking-tight text-black sm:text-4xl mt-1">

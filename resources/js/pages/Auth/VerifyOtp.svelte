@@ -6,6 +6,7 @@ import Button from '@/components/ui/Button.svelte';
 import Badge from '@/components/ui/Badge.svelte';
 import Toast from '@/components/ui/Toast.svelte';
 import { Link, useForm, router, page } from '@inertiajs/svelte';
+import { Mail } from '@lucide/svelte';
 
 let {
     email,
@@ -86,9 +87,7 @@ function resend() {
     <main class="flex flex-1 items-center justify-center p-4 sm:p-6 lg:p-8">
         <div class="w-full max-w-md rounded-xl border-[3px] border-black bg-white p-6 shadow-[8px_8px_0px_0px_#000] sm:p-8 text-center">
             <div class="inline-flex size-14 items-center justify-center rounded-lg border-2 border-black bg-yellow-400 text-black shadow-[2px_2px_0px_0px_#000] mb-4">
-                <svg class="size-7 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+                <Mail class="size-7" strokeWidth={2.5} aria-hidden="true" />
             </div>
 
             <h1 class="text-2xl font-black tracking-tight text-black sm:text-3xl">Verifikasi Email Anda</h1>

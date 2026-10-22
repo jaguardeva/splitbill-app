@@ -1,5 +1,6 @@
 <script lang="ts">
 import { onMount } from 'svelte';
+import { Check, ChevronDown } from '@lucide/svelte';
 
 interface OptionItem {
     value: string | number;
@@ -85,14 +86,7 @@ onMount(() => {
             {selectedOption ? selectedOption.label : placeholder}
         </span>
 
-        <svg
-            class="size-4 shrink-0 text-slate-400 transition-transform duration-150 {open ? 'rotate-180 text-blue-600' : ''}"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-        >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
+        <ChevronDown class="size-4 shrink-0 text-slate-400 transition-transform duration-150 {open ? 'rotate-180 text-blue-600' : ''}" aria-hidden="true" />
     </button>
 
     <!-- Dropdown Popover Menu -->
@@ -121,9 +115,7 @@ onMount(() => {
                     </div>
 
                     {#if isSelected}
-                        <svg class="size-4 shrink-0 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-                        </svg>
+                        <Check class="size-4 shrink-0 text-blue-600" strokeWidth={2.5} aria-hidden="true" />
                     {/if}
                 </button>
             {/each}

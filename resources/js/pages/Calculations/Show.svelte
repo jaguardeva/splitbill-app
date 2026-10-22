@@ -9,6 +9,7 @@ import ExportModal from '@/components/calculator/ExportModal.svelte';
 import { formatDate, formatRupiah } from '@/lib/formatters';
 import type { CalculationPreviewResult } from '@/lib/calculator-preview';
 import { Link, page, router } from '@inertiajs/svelte';
+import { ArrowLeft, Copy, Pencil, Share2 } from '@lucide/svelte';
 
 interface CalculationModel {
     id: string;
@@ -64,9 +65,7 @@ function handleDuplicate() {
                     size="sm"
                     class="mb-2"
                 >
-                    <svg class="size-3.5 mr-1 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                    </svg>
+                    <ArrowLeft class="mr-1 size-3.5" strokeWidth={2.5} aria-hidden="true" />
                     Kembali ke Riwayat
                 </Button>
                 <h1 class="text-2xl font-black tracking-tight text-black sm:text-4xl mt-1">
@@ -85,9 +84,7 @@ function handleDuplicate() {
                     variant="white"
                     size="md"
                 >
-                    <svg class="size-5 mr-1.5 text-black stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 1 1 0-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 1 0 5.367-2.684 3 3 0 0 0-5.367 2.684zm0 9.316a3 3 0 1 0 5.368 2.684 3 3 0 0 0-5.368-2.684z" />
-                    </svg>
+                    <Share2 class="mr-1.5 size-5 text-black" strokeWidth={2.5} aria-hidden="true" />
                     Bagikan
                 </Button>
 
@@ -97,9 +94,7 @@ function handleDuplicate() {
                     variant="yellow"
                     size="md"
                 >
-                    <svg class="size-5 mr-1.5 text-black stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-                    </svg>
+                    <Copy class="mr-1.5 size-5 text-black" strokeWidth={2.5} aria-hidden="true" />
                     Duplikat
                 </Button>
 
@@ -108,9 +103,7 @@ function handleDuplicate() {
                     variant="blue"
                     size="md"
                 >
-                    <svg class="size-5 mr-1.5 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                    </svg>
+                    <Pencil class="mr-1.5 size-5" strokeWidth={2.5} aria-hidden="true" />
                     Ubah Data
                 </Button>
             </div>

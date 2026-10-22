@@ -1,5 +1,6 @@
 <script lang="ts">
 import { onMount } from 'svelte';
+import { Pencil } from '@lucide/svelte';
 import { page, router } from '@inertiajs/svelte';
 import { calculatePreview, type AdjustmentInput, type BillItemInput, type ParticipantInput } from '@/lib/calculator-preview';
 import { formatRupiah } from '@/lib/formatters';
@@ -229,9 +230,7 @@ function handleSave() {
         <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div class="flex-1">
                 <label for="bill-title" class="flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-black">
-                    <svg class="size-4 text-blue-600 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                    </svg>
+                    <Pencil class="size-4 text-blue-600" strokeWidth={2.5} aria-hidden="true" />
                     Judul Tagihan / Acara
                 </label>
                 <input

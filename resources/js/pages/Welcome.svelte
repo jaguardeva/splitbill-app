@@ -1,4 +1,5 @@
 <script lang="ts">
+import { Calculator, MessageCircle, Users, Zap } from '@lucide/svelte';
 import AppHead from '@/components/AppHead.svelte';
 import Navbar from '@/components/Navbar.svelte';
 import Footer from '@/components/Footer.svelte';
@@ -66,9 +67,7 @@ const user = $derived((page.props as any).auth?.user);
                     <div class="relative -rotate-3 rounded-xl border-[3px] border-black bg-white p-5 shadow-[6px_6px_0px_0px_#000] w-72">
                         <div class="flex items-center gap-2 border-b-2 border-black pb-3">
                             <div class="size-8 rounded-lg border-2 border-black bg-blue-600 flex items-center justify-center">
-                                <svg class="size-4 text-yellow-300 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                </svg>
+                                <Calculator class="size-4 text-yellow-300" strokeWidth={2.5} aria-hidden="true" />
                             </div>
                             <span class="font-black text-sm">Makan Siang Tim</span>
                         </div>
@@ -133,9 +132,7 @@ const user = $derived((page.props as any).auth?.user);
                 <!-- Feature 1: White Box with Blue Icon -->
                 <Card variant="white" shadow="md">
                     <div class="flex size-12 items-center justify-center rounded-lg border-2 border-black bg-blue-600 text-yellow-300 shadow-[2px_2px_0px_0px_#000] mb-4">
-                        <svg class="size-6 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                        <Zap class="size-6" strokeWidth={2.5} aria-hidden="true" />
                     </div>
                     <h3 class="text-lg font-black text-black">Langsung Hitung</h3>
                     <p class="mt-2 text-xs font-bold text-neutral-600 leading-relaxed">
@@ -146,9 +143,7 @@ const user = $derived((page.props as any).auth?.user);
                 <!-- Feature 2: Yellow Box -->
                 <Card variant="yellow" shadow="md">
                     <div class="flex size-12 items-center justify-center rounded-lg border-2 border-black bg-white text-black shadow-[2px_2px_0px_0px_#000] mb-4">
-                        <svg class="size-6 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z" />
-                        </svg>
+                        <Calculator class="size-6" strokeWidth={2.5} aria-hidden="true" />
                     </div>
                     <h3 class="text-lg font-black text-black">Presisi Matematika</h3>
                     <p class="mt-2 text-xs font-bold text-black leading-relaxed">
@@ -159,9 +154,7 @@ const user = $derived((page.props as any).auth?.user);
                 <!-- Feature 3: Blue Box -->
                 <Card variant="blue" shadow="md">
                     <div class="flex size-12 items-center justify-center rounded-lg border-2 border-black bg-yellow-400 text-black shadow-[2px_2px_0px_0px_#000] mb-4">
-                        <svg class="size-6 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 1 1 0 5.292M15 21H3v-1a6 6 0 0 1 12 0v1zm0 0h6v-1a6 6 0 0 0-9-5.197M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" />
-                        </svg>
+                        <Users class="size-6" strokeWidth={2.5} aria-hidden="true" />
                     </div>
                     <h3 class="text-lg font-black text-yellow-300">Bagi Rata / Item</h3>
                     <p class="mt-2 text-xs font-bold text-white leading-relaxed">
@@ -172,9 +165,7 @@ const user = $derived((page.props as any).auth?.user);
                 <!-- Feature 4: White Box with Yellow Icon -->
                 <Card variant="white" shadow="md">
                     <div class="flex size-12 items-center justify-center rounded-lg border-2 border-black bg-yellow-400 text-black shadow-[2px_2px_0px_0px_#000] mb-4">
-                        <svg class="size-6 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 0 1-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
+                        <MessageCircle class="size-6" strokeWidth={2.5} aria-hidden="true" />
                     </div>
                     <h3 class="text-lg font-black text-black">Format WhatsApp</h3>
                     <p class="mt-2 text-xs font-bold text-neutral-600 leading-relaxed">

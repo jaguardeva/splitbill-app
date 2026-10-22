@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button.svelte';
 import Input from '@/components/ui/Input.svelte';
 import Alert from '@/components/ui/Alert.svelte';
 import { Link, useForm } from '@inertiajs/svelte';
+import { KeyRound } from '@lucide/svelte';
 
 let { status }: { status?: string } = $props();
 
@@ -40,9 +41,7 @@ function submit(e: Event) {
         <div class="w-full max-w-md rounded-xl border-[3px] border-black bg-white p-6 shadow-[8px_8px_0px_0px_#000] sm:p-8">
             <div class="text-center">
                 <div class="inline-flex size-12 items-center justify-center rounded-lg border-2 border-black bg-yellow-400 text-black shadow-[2px_2px_0px_0px_#000] mb-3">
-                    <svg class="size-6 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
-                    </svg>
+                    <KeyRound class="size-6" strokeWidth={2.5} aria-hidden="true" />
                 </div>
                 <h1 class="text-2xl font-black tracking-tight text-black sm:text-3xl">Pemulihan Kata Sandi</h1>
                 <p class="mt-1 text-xs font-bold text-neutral-600">Masukkan email akun Anda untuk menerima tautan atur ulang kata sandi.</p>

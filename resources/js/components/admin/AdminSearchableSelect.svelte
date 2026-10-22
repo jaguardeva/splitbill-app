@@ -1,5 +1,6 @@
 <script lang="ts">
 import { onMount } from 'svelte';
+import { Check, ChevronDown, Search } from '@lucide/svelte';
 
 interface OptionItem {
     value: string | number;
@@ -107,14 +108,7 @@ onMount(() => {
             {selectedOption ? selectedOption.label : placeholder}
         </span>
 
-        <svg
-            class="size-4 shrink-0 text-slate-400 transition-transform duration-150 {open ? 'rotate-180 text-blue-600' : ''}"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-        >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
+        <ChevronDown class="size-4 shrink-0 text-slate-400 transition-transform duration-150 {open ? 'rotate-180 text-blue-600' : ''}" aria-hidden="true" />
     </button>
 
     <!-- Dropdown Popover with Search Field -->
@@ -127,9 +121,7 @@ onMount(() => {
             <!-- Search Input Box inside Dropdown -->
             <div class="relative mb-1 border-b border-slate-100 pb-1.5">
                 <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-2 text-slate-400">
-                    <svg class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
+                    <Search class="size-3.5" aria-hidden="true" />
                 </div>
                 <input
                     bind:this={searchInputRef}
@@ -166,9 +158,7 @@ onMount(() => {
                             </div>
 
                             {#if isSelected}
-                                <svg class="size-4 shrink-0 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-                                </svg>
+                                <Check class="size-4 shrink-0 text-blue-600" strokeWidth={2.5} aria-hidden="true" />
                             {/if}
                         </button>
                     {/each}

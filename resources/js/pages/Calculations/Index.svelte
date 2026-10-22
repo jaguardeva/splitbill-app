@@ -10,6 +10,7 @@
     import { formatDate, formatRupiah } from "@/lib/formatters";
     import { Link, page, router } from "@inertiajs/svelte";
     import { destroy as destroyCalculation } from "@/routes/calculations";
+    import { FileText, Plus, X } from "@lucide/svelte";
 
     interface CalculationItem {
         id: string;
@@ -151,18 +152,7 @@
             </div>
 
             <Button href="/calculator" variant="blue" size="lg">
-                <svg
-                    class="size-4 mr-1.5 stroke-[2.5]"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 4v16m8-8H4"
-                    />
-                </svg>
+                <Plus class="mr-1.5 size-4" strokeWidth={2.5} aria-hidden="true" />
                 Buat Hitungan Baru
             </Button>
         </div>
@@ -184,18 +174,7 @@
                     size="sm"
                     class="flex-1 sm:flex-none"
                 >
-                    <svg
-                        class="mr-1.5 size-4 stroke-[2.5]"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M6 18L18 6M6 6l12 12"
-                        />
-                    </svg>
+                    <X class="mr-1.5 size-4" strokeWidth={2.5} aria-hidden="true" />
                     Reset
                 </Button>
             {/if}
@@ -209,18 +188,7 @@
                 <div
                     class="mx-auto flex size-14 items-center justify-center rounded-xl border-2 border-black bg-white text-black shadow-[3px_3px_0px_0px_#000]"
                 >
-                    <svg
-                        class="size-7 stroke-[2.5]"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                        />
-                    </svg>
+                    <FileText class="size-7" strokeWidth={2.5} aria-hidden="true" />
                 </div>
                 <h3 class="mt-4 text-base font-black text-black">
                     Belum ada perhitungan tersimpan

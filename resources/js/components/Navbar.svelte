@@ -1,5 +1,6 @@
 <script lang="ts">
 import { Link, page, router } from '@inertiajs/svelte';
+import { Building2, FileText, House, LogIn, Menu, UserPlus, UserRound, X } from '@lucide/svelte';
 import Button from '@/components/ui/Button.svelte';
 import ConfirmModal from '@/components/ui/ConfirmModal.svelte';
 import UserAvatar from '@/components/UserAvatar.svelte';
@@ -62,7 +63,7 @@ function confirmLogout() {
                 href="/"
                 class="rounded-lg px-3.5 py-1.5 text-sm font-bold cursor-pointer transition {currentUrl === '/' || currentUrl === '/calculator' ? 'border-2 border-black bg-yellow-400 text-black shadow-[2px_2px_0px_0px_#000]' : 'border-2 border-transparent text-black hover:border-black hover:bg-neutral-100'}"
             >
-                Kalkulator Cepat
+                Beranda
             </Link>
 
             {#if user}
@@ -107,13 +108,11 @@ function confirmLogout() {
             aria-label="Toggle Menu"
             class="flex size-10 items-center justify-center rounded-lg border-2 border-black bg-yellow-400 text-black shadow-[2px_2px_0px_0px_#000] active:translate-x-0.5 active:translate-y-0.5 md:hidden cursor-pointer"
         >
-            <svg class="size-6 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {#if mobileMenuOpen}
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                {:else}
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                {/if}
-            </svg>
+            {#if mobileMenuOpen}
+                <X class="size-6" strokeWidth={2.5} aria-hidden="true" />
+            {:else}
+                <Menu class="size-6" strokeWidth={2.5} aria-hidden="true" />
+            {/if}
         </button>
     </div>
 
@@ -124,30 +123,41 @@ function confirmLogout() {
                 <Link
                     href="/"
                     onclick={() => (mobileMenuOpen = false)}
-                    class="rounded-lg border-2 border-black px-4 py-2 text-base font-bold cursor-pointer transition {currentUrl === '/' ? 'bg-yellow-400 text-black shadow-[2px_2px_0px_0px_#000]' : 'bg-white text-black'}"
+                    class="flex items-center gap-2.5 rounded-lg border-2 border-black px-4 py-2.5 text-base font-bold cursor-pointer transition {currentUrl === '/' || currentUrl === '/calculator' ? 'bg-yellow-400 text-black shadow-[2px_2px_0px_0px_#000]' : 'bg-white text-black hover:bg-neutral-100'}"
                 >
-                    Kalkulator Cepat
+                    <House class="size-5 shrink-0" strokeWidth={2.5} aria-hidden="true" />
+                    <span>Beranda</span>
                 </Link>
 
                 {#if user}
                     <Link
+                        href="/profile#profile"
+                        onclick={() => (mobileMenuOpen = false)}
+                        class="flex items-center gap-2.5 rounded-lg border-2 border-black px-4 py-2.5 text-base font-bold cursor-pointer transition {currentUrl.startsWith('/profile') ? 'bg-yellow-400 text-black shadow-[2px_2px_0px_0px_#000]' : 'bg-white text-black hover:bg-neutral-100'}"
+                    >
+                        <UserRound class="size-5 shrink-0" strokeWidth={2.5} aria-hidden="true" />
+                        <span>Profil & Keamanan</span>
+                    </Link>
+
+                    <Link
                         href="/calculations"
                         onclick={() => (mobileMenuOpen = false)}
-                        class="rounded-lg border-2 border-black px-4 py-2 text-base font-bold cursor-pointer transition {currentUrl.startsWith('/calculations') ? 'bg-yellow-400 text-black shadow-[2px_2px_0px_0px_#000]' : 'bg-white text-black'}"
+                        class="flex items-center gap-2.5 rounded-lg border-2 border-black px-4 py-2.5 text-base font-bold cursor-pointer transition {currentUrl.startsWith('/calculations') ? 'bg-yellow-400 text-black shadow-[2px_2px_0px_0px_#000]' : 'bg-white text-black hover:bg-neutral-100'}"
                     >
-                        Riwayat Tagihan
+                        <FileText class="size-5 shrink-0" strokeWidth={2.5} aria-hidden="true" />
+                        <span>Riwayat Tagihan</span>
                     </Link>
 
                     {#if user.role === 'admin'}
                         <Link
                             href="/admin/dashboard"
                             onclick={() => (mobileMenuOpen = false)}
-                            class="rounded-lg border-2 border-black bg-blue-600 px-4 py-2 text-base font-bold text-white shadow-[2px_2px_0px_0px_#000] cursor-pointer"
+                            class="flex items-center gap-2.5 rounded-lg border-2 border-black bg-blue-600 px-4 py-2.5 text-base font-bold text-white shadow-[2px_2px_0px_0px_#000] cursor-pointer transition hover:bg-blue-700"
                         >
-                            Panel Admin ⚡
+                            <Building2 class="size-5 shrink-0" strokeWidth={2.5} aria-hidden="true" />
+                            <span>Panel Admin</span>
                         </Link>
                     {/if}
-
 
                     <div class="my-2 border-t-2 border-black pt-3">
                         <UserAvatar {user} onLogout={requestLogout} mobile />
@@ -159,18 +169,20 @@ function confirmLogout() {
                             onclick={() => (mobileMenuOpen = false)}
                             variant="white"
                             size="lg"
-                            class="w-full"
+                            class="w-full justify-center gap-2"
                         >
-                            Masuk
+                            <LogIn class="size-5" aria-hidden="true" />
+                            <span>Masuk</span>
                         </Button>
                         <Button
                             href="/register"
                             onclick={() => (mobileMenuOpen = false)}
                             variant="blue"
                             size="lg"
-                            class="w-full"
+                            class="w-full justify-center gap-2"
                         >
-                            Daftar Akun
+                            <UserPlus class="size-5" aria-hidden="true" />
+                            <span>Daftar Akun</span>
                         </Button>
                     </div>
                 {/if}

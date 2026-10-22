@@ -1,4 +1,5 @@
 <script lang="ts">
+import { Plus, X } from '@lucide/svelte';
 import Button from '@/components/ui/Button.svelte';
 import CurrencyInput from '@/components/ui/CurrencyInput.svelte';
 import type { AdjustmentInput } from '@/lib/calculator-preview';
@@ -59,9 +60,7 @@ function removeAdjustment(index: number) {
                     size="md"
                     class="hover:bg-yellow-300"
                 >
-                    <svg class="size-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                    </svg>
+                    <Plus class="mr-1.5 size-4" strokeWidth={2.5} aria-hidden="true" />
                     + {preset.label}
                 </Button>
             {/if}
@@ -148,9 +147,7 @@ function removeAdjustment(index: number) {
                             aria-label="Hapus penyesuaian"
                             class="neo-btn rounded-lg border-2 border-black bg-red-100 p-2.5 text-black shadow-[2px_2px_0px_0px_#000] hover:bg-red-500 hover:text-white cursor-pointer transition active:translate-x-0.5 active:translate-y-0.5"
                         >
-                            <svg class="size-4 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
+                            <X class="size-4" strokeWidth={2.5} aria-hidden="true" />
                         </button>
                     </div>
                 </div>

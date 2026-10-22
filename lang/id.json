@@ -1,0 +1,6 @@
+{
+    "The provided password was incorrect.": "Kata sandi yang Anda masukkan salah.",
+    "The provided two factor authentication code was invalid.": "Kode autentikasi dua faktor yang dimasukkan tidak valid.",
+    "The provided two factor recovery code was invalid.": "Kode pemulihan dua faktor yang dimasukkan tidak valid.",
+    "The provided password does not match your current password.": "Kata sandi yang Anda masukkan tidak sesuai dengan kata sandi saat ini."
+}

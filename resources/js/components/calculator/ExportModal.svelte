@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from "@inertiajs/svelte";
+    import { Check, Copy, Printer, X } from '@lucide/svelte';
     import Button from "@/components/ui/Button.svelte";
     import { formatDate, formatRupiah } from "@/lib/formatters";
     import type { CalculationPreviewResult } from "@/lib/calculator-preview";
@@ -170,18 +171,7 @@
                     aria-label="Tutup"
                     class="neo-btn modal-close-button inline-flex size-8 items-center justify-center overflow-hidden rounded border-2 border-black bg-yellow-400 p-0 text-black shadow-[2px_2px_0px_0px_#000] transition-colors hover:bg-red-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 cursor-pointer"
                 >
-                    <svg
-                        class="size-4 shrink-0 stroke-[2.5]"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M6 18L18 6M6 6l12 12"
-                        />
-                    </svg>
+                    <X class="size-4 shrink-0" strokeWidth={2.5} aria-hidden="true" />
                 </button>
             </div>
 
@@ -208,32 +198,10 @@
                         class="h-11 min-h-11 w-full min-w-0 justify-center px-2 sm:px-4"
                     >
                         {#if copied}
-                            <svg
-                                class="mr-1.5 size-4 shrink-0 text-emerald-600 stroke-[3]"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M5 13l4 4L19 7"
-                                />
-                            </svg>
+                            <Check class="mr-1.5 size-4 shrink-0 text-emerald-600" strokeWidth={3} aria-hidden="true" />
                             Tersalin!
                         {:else}
-                            <svg
-                                class="mr-1.5 size-5 shrink-0 stroke-[2.5]"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M8 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1M8 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M8 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m0 0h2a2 2 0 0 1 2 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-                                />
-                            </svg>
+                            <Copy class="mr-1.5 size-5 shrink-0" strokeWidth={2.5} aria-hidden="true" />
                             Salin Teks
                         {/if}
                     </Button>
@@ -264,18 +232,7 @@
                     size="md"
                     class="col-span-2 h-11 min-h-11 w-full justify-center"
                 >
-                    <svg
-                        class="mr-1.5 size-5 shrink-0 stroke-[2.5]"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2m2 4h6a2 2 0 0 0 2-2v-4H7v4a2 2 0 0 0 2 2zm8-12V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4h10z"
-                        />
-                    </svg>
+                    <Printer class="mr-1.5 size-5 shrink-0" strokeWidth={2.5} aria-hidden="true" />
                     Cetak / Simpan PDF (Invoice Resmi)
                 </Button>
             </div>

@@ -1,4 +1,5 @@
 <script lang="ts">
+import { Plus, X } from '@lucide/svelte';
 import Button from '@/components/ui/Button.svelte';
 import Badge from '@/components/ui/Badge.svelte';
 import type { ParticipantInput } from '@/lib/calculator-preview';
@@ -90,9 +91,7 @@ function removeParticipant(p: ParticipantInput) {
             size="md"
             class="w-full sm:w-auto"
         >
-            <svg class="size-4 mr-1.5 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-            </svg>
+            <Plus class="mr-1.5 size-4" strokeWidth={2.5} aria-hidden="true" />
             Tambah
         </Button>
     </div>
@@ -137,9 +136,7 @@ function removeParticipant(p: ParticipantInput) {
                         aria-label={`Hapus ${p.name}`}
                         class="p-0.5 text-black transition hover:text-red-600 cursor-pointer"
                     >
-                        <svg class="size-4 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
+                        <X class="size-4" strokeWidth={2.5} aria-hidden="true" />
                     </button>
                 </div>
             {/each}

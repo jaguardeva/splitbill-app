@@ -1,6 +1,7 @@
 <script lang="ts">
 import { onMount, type Snippet } from 'svelte';
 import { Link, page, router } from '@inertiajs/svelte';
+import { Calculator, CheckCircle, CircleAlert, ExternalLink, LayoutDashboard, LogOut, Menu, ReceiptText, UserRound, Users, X } from '@lucide/svelte';
 import AdminButton from '@/components/admin/AdminButton.svelte';
 import AdminBadge from '@/components/admin/AdminBadge.svelte';
 import { logout as logoutRoute } from '@/routes';
@@ -114,17 +115,11 @@ onMount(() => {
                         : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'}"
                 >
                     {#if item.icon === 'dashboard'}
-                        <svg class="size-4.5 shrink-0 transition-colors {isActive ? 'text-blue-600' : 'text-slate-400 group-hover:text-slate-600'}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                        </svg>
+                        <LayoutDashboard class="size-4.5 shrink-0 transition-colors {isActive ? 'text-blue-600' : 'text-slate-400 group-hover:text-slate-600'}" aria-hidden="true" />
                     {:else if item.icon === 'users'}
-                        <svg class="size-4.5 shrink-0 transition-colors {isActive ? 'text-blue-600' : 'text-slate-400 group-hover:text-slate-600'}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                        </svg>
+                        <Users class="size-4.5 shrink-0 transition-colors {isActive ? 'text-blue-600' : 'text-slate-400 group-hover:text-slate-600'}" aria-hidden="true" />
                     {:else if item.icon === 'receipt'}
-                        <svg class="size-4.5 shrink-0 transition-colors {isActive ? 'text-blue-600' : 'text-slate-400 group-hover:text-slate-600'}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                        </svg>
+                        <ReceiptText class="size-4.5 shrink-0 transition-colors {isActive ? 'text-blue-600' : 'text-slate-400 group-hover:text-slate-600'}" aria-hidden="true" />
                     {/if}
                     <span>{item.name}</span>
                 </Link>
@@ -138,9 +133,7 @@ onMount(() => {
                         class="group flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-800 transition-colors cursor-pointer"
                     >
                         <span class="flex items-center gap-3">
-                            <svg class="size-4.5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                            </svg>
+                            <Calculator class="size-4.5 text-amber-500" aria-hidden="true" />
                             <span>Buka Kalkulator</span>
                         </span>
                         <span class="rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">Pintas</span>
@@ -151,9 +144,7 @@ onMount(() => {
                         class="group flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors cursor-pointer"
                     >
                         <span class="flex items-center gap-3">
-                            <svg class="size-4.5 text-slate-400 group-hover:text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
+                            <ExternalLink class="size-4.5 text-slate-400 group-hover:text-slate-600" aria-hidden="true" />
                             <span>Mode Pengguna</span>
                         </span>
                         <span class="text-xs text-slate-400">↗</span>
@@ -175,9 +166,7 @@ onMount(() => {
                     title="Keluar"
                     class="rounded-md p-1.5 text-slate-400 hover:bg-slate-100 hover:text-rose-600 transition-colors cursor-pointer"
                 >
-                    <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                    </svg>
+                    <LogOut class="size-4" aria-hidden="true" />
                 </button>
             </div>
         </div>
@@ -210,9 +199,7 @@ onMount(() => {
                     aria-label="Tutup menu sidebar"
                     class="rounded-md p-1.5 text-slate-400 hover:bg-slate-100 text-slate-700 cursor-pointer"
                 >
-                    <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                        <X class="size-5" aria-hidden="true" />
                 </button>
             </div>
 
@@ -238,9 +225,7 @@ onMount(() => {
                             class="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-amber-50"
                         >
                             <span class="flex items-center gap-3">
-                                <svg class="size-4.5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
+                                <Calculator class="size-4.5 text-amber-500" aria-hidden="true" />
                                 <span>Buka Kalkulator</span>
                             </span>
                             <span class="rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">Pintas</span>
@@ -251,9 +236,7 @@ onMount(() => {
                             class="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100"
                         >
                             <span class="flex items-center gap-3">
-                                <svg class="size-4.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                </svg>
+                                <ExternalLink class="size-4.5 text-slate-400" aria-hidden="true" />
                                 <span>Mode Pengguna</span>
                             </span>
                             <span>↗</span>
@@ -287,9 +270,7 @@ onMount(() => {
                     aria-label="Toggle menu mobile"
                     class="rounded-lg p-1.5 text-slate-500 hover:bg-slate-100 md:hidden cursor-pointer shrink-0"
                 >
-                    <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
+                    <Menu class="size-5" aria-hidden="true" />
                 </button>
 
                 <div class="min-w-0 flex-1">
@@ -316,9 +297,7 @@ onMount(() => {
                         variant="warning"
                         size="sm"
                     >
-                        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                        </svg>
+                        <Calculator class="size-4" aria-hidden="true" />
                         <span>Buka Kalkulator</span>
                     </AdminButton>
                 </div>
@@ -359,16 +338,26 @@ onMount(() => {
                             </div>
 
                             <!-- Menu Items -->
-                            <div class="py-1">
+                            <div class="py-1 space-y-0.5">
+                                <Link
+                                    href="/profile#profile"
+                                    onclick={() => (profileMenuOpen = false)}
+                                    class="flex w-full items-center justify-between rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition-colors"
+                                >
+                                    <span class="flex items-center gap-2.5">
+                                        <UserRound class="size-4 text-slate-400" aria-hidden="true" />
+                                        <span>Profil & Keamanan</span>
+                                    </span>
+                                    <span class="text-[10px] text-slate-400">⚙️</span>
+                                </Link>
+
                                 <Link
                                     href="/calculations"
                                     onclick={() => (profileMenuOpen = false)}
                                     class="flex w-full items-center justify-between rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition-colors"
                                 >
                                     <span class="flex items-center gap-2.5">
-                                        <svg class="size-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                        </svg>
+                                        <ExternalLink class="size-4 text-slate-400" aria-hidden="true" />
                                         <span>Mode Pengguna</span>
                                     </span>
                                     <span class="text-[10px] text-slate-400">↗</span>
@@ -385,9 +374,7 @@ onMount(() => {
                                     }}
                                     class="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs font-medium text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
                                 >
-                                    <svg class="size-4 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                    </svg>
+                                    <LogOut class="size-4 text-rose-500" aria-hidden="true" />
                                     <span>Keluar Sesi</span>
                                 </button>
                             </div>
@@ -403,18 +390,14 @@ onMount(() => {
             <!-- Flash Notifications -->
             {#if flashSuccess}
                 <div class="mb-6 flex items-start gap-3 rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800 shadow-xs">
-                    <svg class="mt-0.5 size-5 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                    <CheckCircle class="mt-0.5 size-5 shrink-0 text-emerald-600" aria-hidden="true" />
                     <div class="flex-1 font-medium">{flashSuccess}</div>
                 </div>
             {/if}
 
             {#if flashError}
                 <div class="mb-6 flex items-start gap-3 rounded-lg border border-rose-200 bg-rose-50 p-4 text-sm text-rose-800 shadow-xs">
-                    <svg class="mt-0.5 size-5 shrink-0 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                    <CircleAlert class="mt-0.5 size-5 shrink-0 text-rose-600" aria-hidden="true" />
                     <div class="flex-1 font-medium">{flashError}</div>
                 </div>
             {/if}

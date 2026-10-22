@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 
 /**
  * @property string $id
@@ -22,15 +23,18 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $email_verified_at
  * @property string $password
  * @property string|null $remember_token
+ * @property string|null $two_factor_secret
+ * @property array<int, string>|null $two_factor_recovery_codes
+ * @property Carbon|null $two_factor_confirmed_at
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  */
 #[Fillable(['name', 'email', 'password', 'role'])]
-#[Hidden(['password', 'remember_token'])]
+#[Hidden(['password', 'remember_token', 'two_factor_secret', 'two_factor_recovery_codes'])]
 class User extends Authenticatable implements MustVerifyEmail
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, HasUuids, Notifiable;
+    use HasFactory, HasUuids, Notifiable, TwoFactorAuthenticatable;
 
     /**
      * Get the attributes that should be cast.
@@ -43,6 +47,7 @@ class User extends Authenticatable implements MustVerifyEmail
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'role' => Role::class,
+            'two_factor_confirmed_at' => 'datetime',
         ];
     }
 
@@ -90,5 +95,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public function emailOtpChallenges(): HasMany
     {
         return $this->hasMany(EmailOtpChallenge::class);
+    }
+
+    /**
+     * Determine if the user has two-factor authentication enabled and confirmed.
+     */
+    public function hasEnabledTwoFactor(): bool
+    {
+        return $this->hasEnabledTwoFactorAuthentication();
     }
 }

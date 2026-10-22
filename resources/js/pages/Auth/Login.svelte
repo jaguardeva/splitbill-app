@@ -6,6 +6,7 @@ import Input from '@/components/ui/Input.svelte';
 import PasswordInput from '@/components/ui/PasswordInput.svelte';
 import Alert from '@/components/ui/Alert.svelte';
 import { Link, useForm } from '@inertiajs/svelte';
+import { store as login } from '@/routes/login';
 
 let { status }: { status?: string } = $props();
 
@@ -17,7 +18,7 @@ const form = useForm({
 
 function submit(e: Event) {
     e.preventDefault();
-    form.post('/login', {
+    form.post(login.url(), {
         onSuccess: () => form.reset('password'),
     });
 }

@@ -1,4 +1,5 @@
 <script lang="ts">
+import { TriangleAlert, X } from '@lucide/svelte';
 import Button from '@/components/ui/Button.svelte';
 
 let {
@@ -35,9 +36,7 @@ let {
             <div class="flex items-start justify-between gap-4 border-b-2 border-black pb-3">
                 <div class="flex items-start gap-3">
                     <span class="flex size-9 shrink-0 items-center justify-center rounded-lg border-2 border-black bg-red-500 text-white shadow-[2px_2px_0px_0px_#000]">
-                        <svg class="size-5 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86l-8.82 15a2 2 0 001.73 3h17.6a2 2 0 001.73-3l-8.82-15a2 2 0 00-3.46 0z" />
-                        </svg>
+                        <TriangleAlert class="size-5" strokeWidth={2.5} aria-hidden="true" />
                     </span>
                     <h2 id="confirm-modal-title" class="pt-1 text-lg font-black tracking-tight">
                         {title}
@@ -51,9 +50,7 @@ let {
                     aria-label="Tutup modal"
                     class="neo-btn modal-close-button inline-flex size-8 shrink-0 items-center justify-center overflow-hidden rounded border-2 border-black bg-yellow-400 p-0 text-black shadow-[2px_2px_0px_0px_#000] transition-colors hover:bg-red-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                    <svg class="size-4 shrink-0 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <X class="size-4 shrink-0" strokeWidth={2.5} aria-hidden="true" />
                 </button>
             </div>
 

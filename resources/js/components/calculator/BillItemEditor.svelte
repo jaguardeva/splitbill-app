@@ -1,4 +1,5 @@
 <script lang="ts">
+import { ClipboardList, Plus, Trash2 } from '@lucide/svelte';
 import Button from '@/components/ui/Button.svelte';
 import CurrencyInput from '@/components/ui/CurrencyInput.svelte';
 import { formatRupiah } from '@/lib/formatters';
@@ -62,9 +63,7 @@ function toggleAllParticipants(itemIndex: number) {
     {#if items.length === 0}
         <div class="mt-4 rounded-lg border-2 border-dashed border-black bg-yellow-50 py-10 text-center">
             <div class="mx-auto flex size-14 items-center justify-center rounded-xl border-2 border-black bg-yellow-400 text-black shadow-[3px_3px_0px_0px_#000]">
-                <svg class="size-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2" />
-                </svg>
+                <ClipboardList class="size-7" strokeWidth={2.5} aria-hidden="true" />
             </div>
             <p class="mt-3 text-base font-black text-black">Belum ada item pesanan</p>
             <p class="text-xs font-medium text-neutral-600 mt-1">Gunakan tombol "+ Tambah Item" di bawah untuk mulai mencatat struk.</p>
@@ -179,9 +178,7 @@ function toggleAllParticipants(itemIndex: number) {
                             size="sm"
                             aria-label={`Hapus ${item.description || `Item #${index + 1}`}`}
                         >
-                            <svg class="mr-1.5 size-4 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v3M4 7h16" />
-                            </svg>
+                            <Trash2 class="mr-1.5 size-4" strokeWidth={2.5} aria-hidden="true" />
                             Hapus Item
                         </Button>
                     </div>
@@ -198,9 +195,7 @@ function toggleAllParticipants(itemIndex: number) {
             size="md"
             class="w-full sm:ml-auto sm:w-auto"
         >
-            <svg class="mr-1.5 size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-            </svg>
+            <Plus class="mr-1.5 size-4" strokeWidth={2.5} aria-hidden="true" />
             Tambah Item
         </Button>
     </div>

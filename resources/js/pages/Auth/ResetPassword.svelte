@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button.svelte';
 import Input from '@/components/ui/Input.svelte';
 import PasswordInput from '@/components/ui/PasswordInput.svelte';
 import { Link, useForm } from '@inertiajs/svelte';
+import { LockKeyhole } from '@lucide/svelte';
 
 let {
     token,
@@ -51,9 +52,7 @@ function submit(e: Event) {
         <div class="w-full max-w-md rounded-xl border-[3px] border-black bg-white p-6 shadow-[8px_8px_0px_0px_#000] sm:p-8">
             <div class="text-center">
                 <div class="inline-flex size-12 items-center justify-center rounded-lg border-2 border-black bg-blue-600 text-yellow-300 shadow-[2px_2px_0px_0px_#000] mb-3">
-                    <svg class="size-6 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
+                    <LockKeyhole class="size-6" strokeWidth={2.5} aria-hidden="true" />
                 </div>
                 <h1 class="text-2xl font-black tracking-tight text-black sm:text-3xl">Atur Ulang Kata Sandi</h1>
                 <p class="mt-1 text-xs font-bold text-neutral-600">Masukkan kata sandi baru untuk akun Anda.</p>

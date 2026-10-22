@@ -1,4 +1,5 @@
 <script lang="ts">
+import { ChevronDown } from '@lucide/svelte';
 import type { Snippet } from 'svelte';
 
 let {
@@ -32,9 +33,7 @@ let {
         <span
             class="flex size-7 shrink-0 items-center justify-center rounded border-2 border-black bg-yellow-400 text-black shadow-[1px_1px_0px_0px_#000] transition-transform duration-200 {isOpen ? 'rotate-180 bg-blue-600 text-white' : ''}"
         >
-            <svg class="size-4 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
+            <ChevronDown class="size-4" strokeWidth={3} aria-hidden="true" />
         </span>
     </button>
 
